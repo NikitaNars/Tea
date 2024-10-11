@@ -6,10 +6,10 @@ int main()
 	int chapter, drink, count,a , allCost = 0, freeJuice = 0, priceDiscount = 200;
 	float discount = 0;
 
-	const int countJuice = 4, countVegetables = 3, countTea = 2;
+	const int countJuice = 4, countVegetables = 3, countTea = 4;
 	
 
-	int costApple = 10, costOrange = 8, costApricot = 15, costPear = 12, costTomato = 8, costOnion = 7, costCucumber = 14, costTeaOnion = 9, costTeaParsley = 14;
+	int costApple = 10, costOrange = 8, costApricot = 15, costPear = 12, costTomato = 8, costOnion = 7, costCucumber = 14, costTeaOnion = 9, costTeaParsley = 14, costTeaBlack = 5, costTeaGrean = 5;
 	int costJucieFruit[countJuice]{ costApple, costOrange, costApricot, costPear };
 	int costJucieVegetable[countVegetables]{ costTomato, costOnion, costCucumber };
 	int tea[countTea]{ costTeaOnion, costTeaParsley };
@@ -44,6 +44,12 @@ int main()
 						{
 							break;
 						}
+					}
+					if (drink == 2 && count >= 4)
+					{
+						allCost += costJucieFruit[drink - 1] * count - count / 4;
+						freeJuice += count / 4;
+						std::cout << "Вы получили " << count / 4 << " литр(а) сока бесплатно.\n";
 					}
 					
 					allCost += costJucieFruit[drink - 1] * count;
@@ -93,7 +99,7 @@ int main()
 				while (true)
 				{
 					std::cout << "У нас есть: \n";
-					std::cout << "1. Чесночный чай. Цена: " << costTeaOnion << "\n2. Петрушевый чай. Цена: " << costTeaParsley << "\nЧто вы хотите: ";
+					std::cout << "1. Чесночный чай. Цена: " << costTeaOnion << "\n2. Петрушевый чай. Цена: " << costTeaParsley <<"3. Чёрный чай. Цена: " << costTeaBlack <<"4. Зелёный чай. Цена: " <<costTeaGrean << "\nЧто вы хотите: ";
 					std::cin >> drink;
 					if (drink > 0 && drink <= countTea)
 					{
